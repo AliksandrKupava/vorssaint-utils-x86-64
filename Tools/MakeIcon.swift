@@ -107,7 +107,19 @@ func renderAppIcon(px: Int) -> Data? {
                        from: NSRect(origin: .zero, size: appIconMaster.size),
                        operation: .sourceOver, fraction: 1,
                        respectFlipped: false,
-                       hints: [.interpolation: NSImageInterpolation.high.rawValue])
+                        hints: [.interpolation: NSImageInterpolation.high.rawValue])
+    // Custom fork badge: if icon-work/badge-1024.png exists (an
+    // independently drawn badge layer, same 1024x1024 canvas as the master),
+    // it is composited over the icon as-is. Delete the file to build without
+    // a badge.
+    let badgePath = projectDir.appendingPathComponent("icon-work/badge-1024.png").path
+    if let badge = NSImage(contentsOfFile: badgePath) {
+        badge.draw(in: NSRect(x: 0, y: 0, width: size, height: size),
+                   from: NSRect(origin: .zero, size: badge.size),
+                   operation: .sourceOver, fraction: 1,
+                   respectFlipped: false,
+                   hints: [.interpolation: NSImageInterpolation.high.rawValue])
+    }
     NSGraphicsContext.restoreGraphicsState()
     return rep.representation(using: .png, properties: [:])
 }

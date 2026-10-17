@@ -24,11 +24,23 @@
 
 <p align="center">
   <a href="https://github.com/vorssaint/vorssaint-utils/releases"><img src="https://img.shields.io/github/v/release/vorssaint/vorssaint-utils?label=release&color=4c8dff" alt="Latest release"></a>
-  <a href="https://github.com/vorssaint/vorssaint-utils/releases"><img src="https://img.shields.io/github/downloads/vorssaint/vorssaint-utils/total?color=4c8dff" alt="Downloads"></a>
-  <a href="https://github.com/vorssaint/vorssaint-utils/actions/workflows/ci.yml"><img src="https://github.com/vorssaint/vorssaint-utils/actions/workflows/ci.yml/badge.svg?branch=main&event=push" alt="CI status"></a>
-  <a href="#what-you-need"><img src="https://img.shields.io/badge/macOS-14%2B%20Apple%20Silicon-black" alt="macOS 14 and newer, Apple Silicon"></a>
+  <a href="#what-you-need"><img src="https://img.shields.io/badge/macOS-14%2B%20Intel%20x86--64-black" alt="macOS 14 and newer, Intel x86-64"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-GPL--3.0--or--later-blue" alt="License GPL 3.0 or later"></a>
 </p>
+
+## Об этом форке
+
+Это форк [vorssaint/vorssaint-utils](https://github.com/vorssaint/vorssaint-utils),
+адаптированный для **Mac на процессорах Intel (x86_64)**. Оригинальный проект
+собирается только под Apple Silicon (arm64) — здесь цель сборки в `build.sh`
+определяется автоматически по архитектуре машины, а на иконку приложения
+добавлена пометка **x86-64**, чтобы не путать сборку с официальной.
+
+> ⚠️ **Известное ограничение:** функции управления питанием (fan control /
+> управление вентиляторами и связанные питания функции) в этой сборке
+> **пока не работают**. См.-issue в трекере форка.
+
+Остальной функционал и инструкции — ниже, из оригинального README.
 
 <p align="center">
   <a href="https://buymeacoffee.com/vorssaint">
